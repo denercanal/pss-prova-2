@@ -1,20 +1,24 @@
 package br.ufes.pss.prova2.presenter;
 
+import br.ufes.pss.prova2.interfaces.IImagemProxy;
+import br.ufes.pss.prova2.proxy.ImagemDownload;
 import br.ufes.pss.prova2.proxy.ImagemProxy;
 import br.ufes.pss.prova2.view.ViewUltimasImagens;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.metal.MetalBorders;
 
-public class PresenterMiniatura3 {
+public final class PresenterMiniatura3 implements IImagemProxy {
 
     private final ViewUltimasImagens viewUltimasImagens;
 
-    PresenterMiniatura3(ViewUltimasImagens viewUltimasImagens) {
+    PresenterMiniatura3(ViewUltimasImagens viewUltimasImagens) throws IOException {
         this.viewUltimasImagens = viewUltimasImagens;
-
+        viewUltimasImagens.getMiniatura3().setIcon(new ImagemDownload().downloadFromUrl("https://img.mandic.com.br/blog/2018/02/devops-process.png", 150, 150));
+        exibirToString();
         this.miniatura3();
     }
 
@@ -47,5 +51,15 @@ public class PresenterMiniatura3 {
                 viewUltimasImagens.getMiniatura3().setBorder(null);
             }
         });
+    }
+
+    @Override
+    public ImageIcon exibir() {
+        return null;
+    }
+
+    @Override
+    public void exibirToString() {
+        System.out.println("Exibindo miniatura da imagem: 3_DEVOPS.png");
     }
 }

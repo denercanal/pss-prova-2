@@ -29,23 +29,23 @@ public class PresenterUltimasImagens {
         this.viewUltimasImagensMiniatura5();
     }
 
-    private void viewUltimasImagensMiniatura1() {
+    private void viewUltimasImagensMiniatura1() throws IOException {
         new PresenterMiniatura1(this.viewUltimasImagens);
     }
 
-    private void viewUltimasImagensMiniatura2() {
+    private void viewUltimasImagensMiniatura2() throws IOException {
         new PresenterMiniatura2(this.viewUltimasImagens);
     }
 
-    private void viewUltimasImagensMiniatura3() {
+    private void viewUltimasImagensMiniatura3() throws IOException {
         new PresenterMiniatura3(this.viewUltimasImagens);
     }
 
-    private void viewUltimasImagensMiniatura4() {
+    private void viewUltimasImagensMiniatura4() throws IOException {
         new PresenterMiniatura4(this.viewUltimasImagens);
     }
 
-    private void viewUltimasImagensMiniatura5() {
+    private void viewUltimasImagensMiniatura5() throws IOException {
         new PresenterMiniatura5(this.viewUltimasImagens);
     }
 }

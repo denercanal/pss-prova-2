@@ -1,8 +1,10 @@
 package br.ufes.pss.prova2.interfaces;
 
+import javax.swing.ImageIcon;
+
 public interface IImagemProxy {
 
-    void exibir();
+    ImageIcon exibir();
 
     void exibirToString();
 }

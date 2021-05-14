@@ -10,16 +10,22 @@ import javax.swing.ImageIcon;
 
 public class ImagemDownload {
 
-    public ImageIcon downloadFromUrl(String url, int altura, int largura) throws IOException {
+    public static ImageIcon downloadFromUrl(String url, int altura, int largura) throws IOException {
 
-        URL imagemUrl = new URL(url);
+        try {
 
-        BufferedImage image;
-        try (InputStream in = imagemUrl.openStream()) {
-            image = ImageIO.read(in);
+            URL imagemUrl = new URL(url);
+
+            BufferedImage image;
+            try (InputStream in = imagemUrl.openStream()) {
+                image = ImageIO.read(in);
+                ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(altura, largura, Image.SCALE_DEFAULT));
+                in.close();
+                return imageIcon;
+            }
+
+        } catch (IOException ex) {
+            throw ex;
         }
-
-        ImageIcon imageIcon = new ImageIcon(image.getScaledInstance(altura, largura, Image.SCALE_DEFAULT));
-        return imageIcon;
     }
 }
