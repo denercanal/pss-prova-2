@@ -22,7 +22,7 @@ public class PresenterMiniatura1 {
             @Override
             public void mouseClicked(MouseEvent e) {
                 try {
-                    new ImagemProxy("1_DOCKER.jpg", "https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2-1280x720.png").exibir();
+                    new ImagemProxy("1_DOCKER.png", "https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2-1280x720.png").exibir();
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(viewUltimasImagens, "Imagem não encontrada!");
                 }
