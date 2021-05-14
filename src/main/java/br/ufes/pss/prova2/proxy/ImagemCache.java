@@ -1,7 +1,6 @@
 package br.ufes.pss.prova2.proxy;
 
 import br.ufes.pss.prova2.model.Imagem;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class ImagemCache {
@@ -20,7 +19,7 @@ public class ImagemCache {
         return instancia;
     }
 
-    public Imagem getImagem(String nome, String url) throws IOException {
+    public Imagem getImagem(String nome, String url) {
         int i = 0;
         for (Imagem imagem : this.imagensCache) {
             if (imagem.getNomeImagem().equals(nome)) {

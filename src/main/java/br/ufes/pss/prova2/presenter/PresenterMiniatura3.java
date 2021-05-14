@@ -6,16 +6,14 @@ import br.ufes.pss.prova2.proxy.ImagemProxy;
 import br.ufes.pss.prova2.view.ViewUltimasImagens;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.plaf.metal.MetalBorders;
 
 public final class PresenterMiniatura3 implements IImagemProxy {
 
     private final ViewUltimasImagens viewUltimasImagens;
 
-    PresenterMiniatura3(ViewUltimasImagens viewUltimasImagens) throws IOException {
+    PresenterMiniatura3(ViewUltimasImagens viewUltimasImagens) {
         this.viewUltimasImagens = viewUltimasImagens;
         viewUltimasImagens.getMiniatura3().setIcon(new ImagemDownload().downloadFromUrl("https://img.mandic.com.br/blog/2018/02/devops-process.png", 150, 150));
         exibirToString();
@@ -26,11 +24,9 @@ public final class PresenterMiniatura3 implements IImagemProxy {
         viewUltimasImagens.getMiniatura3().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    new ImagemProxy("3_DEVOPS.png", "https://img.mandic.com.br/blog/2018/02/devops-process.png").exibir();
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(viewUltimasImagens, "Imagem não encontrada!");
-                }
+
+                new ImagemProxy("3_DEVOPS.png", "https://img.mandic.com.br/blog/2018/02/devops-process.png").exibir();
+
             }
 
             @Override

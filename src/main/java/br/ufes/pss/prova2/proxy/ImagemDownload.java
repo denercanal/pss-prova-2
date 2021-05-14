@@ -10,7 +10,7 @@ import javax.swing.ImageIcon;
 
 public class ImagemDownload {
 
-    public static ImageIcon downloadFromUrl(String url, int altura, int largura) throws IOException {
+    public static ImageIcon downloadFromUrl(String url, int altura, int largura) {
 
         try {
 
@@ -25,7 +25,8 @@ public class ImagemDownload {
             }
 
         } catch (IOException ex) {
-            throw ex;
+            ex.printStackTrace();
         }
+        return null;
     }
 }

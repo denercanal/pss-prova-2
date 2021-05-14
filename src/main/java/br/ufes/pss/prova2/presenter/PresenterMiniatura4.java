@@ -6,16 +6,14 @@ import br.ufes.pss.prova2.proxy.ImagemProxy;
 import br.ufes.pss.prova2.view.ViewUltimasImagens;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.plaf.metal.MetalBorders;
 
 public final class PresenterMiniatura4 implements IImagemProxy {
 
     private final ViewUltimasImagens viewUltimasImagens;
 
-    PresenterMiniatura4(ViewUltimasImagens viewUltimasImagens) throws IOException {
+    PresenterMiniatura4(ViewUltimasImagens viewUltimasImagens) {
         this.viewUltimasImagens = viewUltimasImagens;
         viewUltimasImagens.getMiniatura4().setIcon(ImagemDownload.downloadFromUrl("https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png", 150, 150));
         exibirToString();
@@ -26,11 +24,9 @@ public final class PresenterMiniatura4 implements IImagemProxy {
         viewUltimasImagens.getMiniatura4().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    new ImagemProxy("4_LINUX.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png").exibir();
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(viewUltimasImagens, "Imagem não encontrada!");
-                }
+
+                new ImagemProxy("4_LINUX.png", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/1200px-Tux.svg.png").exibir();
+
             }
 
             @Override

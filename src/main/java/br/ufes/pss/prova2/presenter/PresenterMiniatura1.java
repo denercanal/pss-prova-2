@@ -6,16 +6,14 @@ import br.ufes.pss.prova2.proxy.ImagemProxy;
 import br.ufes.pss.prova2.view.ViewUltimasImagens;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 import javax.swing.plaf.metal.MetalBorders;
 
 public final class PresenterMiniatura1 implements IImagemProxy {
 
     private final ViewUltimasImagens viewUltimasImagens;
 
-    PresenterMiniatura1(ViewUltimasImagens viewUltimasImagens) throws IOException {
+    PresenterMiniatura1(ViewUltimasImagens viewUltimasImagens) {
         this.viewUltimasImagens = viewUltimasImagens;
         viewUltimasImagens.getMiniatura1().setIcon(new ImagemDownload().downloadFromUrl("https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2-1280x720.png", 150, 150));
         exibirToString();
@@ -26,11 +24,9 @@ public final class PresenterMiniatura1 implements IImagemProxy {
         viewUltimasImagens.getMiniatura1().addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                try {
-                    viewUltimasImagens.getImagemHD().setIcon(new ImagemProxy("1_DOCKER.png", "https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2-1280x720.png").exibir());
-                } catch (IOException ex) {
-                    JOptionPane.showMessageDialog(viewUltimasImagens, "Imagem não encontrada!");
-                }
+
+                viewUltimasImagens.getImagemHD().setIcon(new ImagemProxy("1_DOCKER.png", "https://blog.geekhunter.com.br/wp-content/uploads/2019/06/docker-na-pratica-como-construir-uma-aplicacao-2-1280x720.png").exibir());
+
             }
 
             @Override

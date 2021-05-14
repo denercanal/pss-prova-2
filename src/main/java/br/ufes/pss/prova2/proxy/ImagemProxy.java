@@ -2,7 +2,6 @@ package br.ufes.pss.prova2.proxy;
 
 import br.ufes.pss.prova2.interfaces.IImagemProxy;
 import br.ufes.pss.prova2.model.Imagem;
-import java.io.IOException;
 import javax.swing.ImageIcon;
 
 public final class ImagemProxy implements IImagemProxy {
@@ -15,7 +14,7 @@ public final class ImagemProxy implements IImagemProxy {
         this.nomeImagem = nomeImagem;
     }
 
-    public ImagemProxy(String nomeImagem, String url) throws IOException {
+    public ImagemProxy(String nomeImagem, String url) {
         this.nomeImagem = nomeImagem;
         this.url = url;
     }
@@ -23,10 +22,8 @@ public final class ImagemProxy implements IImagemProxy {
     @Override
     public ImageIcon exibir() {
 
-        try {
-            imagem = ImagemCache.getInstancia().getImagem(this.nomeImagem, this.url);
-        } catch (IOException ex) {
-        }
+        imagem = ImagemCache.getInstancia().getImagem(this.nomeImagem, this.url);
+
         if (imagem == null) {
             imagem = new Imagem(nomeImagem);
         }

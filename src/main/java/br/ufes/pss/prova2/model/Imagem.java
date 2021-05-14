@@ -3,7 +3,6 @@ package br.ufes.pss.prova2.model;
 import br.ufes.pss.prova2.interfaces.IImagemProxy;
 import br.ufes.pss.prova2.presenter.PresenterUltimasImagens;
 import br.ufes.pss.prova2.proxy.ImagemDownload;
-import java.io.IOException;
 import javax.swing.ImageIcon;
 
 public final class Imagem implements IImagemProxy {
@@ -21,25 +20,23 @@ public final class Imagem implements IImagemProxy {
         return nomeImagem;
     }
 
-    public Imagem(String nomeImagem, String url) throws IOException {
+    public Imagem(String nomeImagem, String url) {
         this.nomeImagem = nomeImagem;
         this.url = url;
         exibirToString();
         this.getImageFromUrl(url);
     }
 
-    private void getImageFromUrl(String url) throws IOException {
+    private void getImageFromUrl(String url) {
         this.imagemHD = ImagemDownload.downloadFromUrl(url, 717, 650);
     }
 
     @Override
     public ImageIcon exibir() {
-        try {
-            PresenterUltimasImagens.getInstance().getViewUltimasImagens().getImagemHD().setIcon(imagemHD);
-            return imagemHD;
-        } catch (IOException ex) {
-        }
-        return null;
+
+        PresenterUltimasImagens.getInstance().getViewUltimasImagens().getImagemHD().setIcon(imagemHD);
+        return imagemHD;
+
     }
 
     @Override
